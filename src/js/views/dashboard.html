@@ -1,0 +1,28 @@
+<div class="oj-hybrid-padding">
+  <h1>Product Information</h1>
+  <div>
+    <input id="text-user" type="text" data-bind="ojComponent: {component: 'ojInputText', value: user, required:true}"/>
+    <input id="submit" type="submit" data-bind="click: submitBt, ojComponent: {component: 'ojButton', label: 'Update'}"/>
+    <span class="oj-label">this string <span data-bind="text: submittedValue"></span> will be converted into a chart </span>
+    <oj-table id="table1" aria-label="Revenue Table 1"
+                          data='[[dataprovider]]' 
+                          columns='[
+                                    {"headerText": "Q1", "field": "Q1"},
+                                    {"headerText": "Q2", "field": "Q2"},
+                                    {"headerText": "Q3", "field": "Q3"},
+                                    {"headerText": "Q4", "field": "Q4"}]'
+                          selection-mode='{"row": "multiple"}'
+                          dnd.drag.rows.data-types='["application/ojtablerows+json"]'>
+    </oj-table>
+    <oj-chart id="barChart"
+              type='bar' 
+              series='[[barSeriesValue]]' 
+              groups='[[barGroupsValue]]' 
+              animation-on-display='auto'
+              animation-on-data-change='auto'
+              dnd.drop.plot-area.data-types='["application/ojtablerows+json"]'
+              dnd.drop.plot-area.drop='[[handleDrop]]'
+              >
+    </oj-chart>
+  </div>
+</div>
